@@ -1,34 +1,30 @@
-# Gráficas del perfil (lenguajes y calendario), contando también los repos privados.
-# Usa lowlighter/metrics (MIT), versión fija. Solo publica porcentajes y el calendario:
-# ni nombres de repos ni código. Necesita el secreto METRICS_TOKEN (token de solo lectura).
-name: Metrics
+# Gráfica de lenguajes del perfil, contando también los repos privados.
+# Script propio (.github/scripts/lenguajes.py), sin código de terceros con el token.
+# METRICS_TOKEN: token fine-grained de solo lectura (Contents y Metadata). Solo se publican porcentajes.
+name: Lenguajes
 on:
   schedule:
     - cron: "17 4 * * *"   # una vez al día
   workflow_dispatch:
 permissions:
-  contents: write          # para guardar metrics.svg en este repo
+  contents: write          # para guardar lenguajes.svg en este repo
 jobs:
-  metrics:
+  lenguajes:
     runs-on: ubuntu-latest
     if: github.repository == 'ddmr2811/ddmr2811'
     steps:
-      - uses: lowlighter/metrics@65836723097537a54cd8eb90f61839426b4266b6 # v3.34
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
-          filename: metrics.svg
-          user: ddmr2811
-          template: classic
-          base: ""
-          config_timezone: Europe/Madrid
-          config_display: large
-          repositories_forks: no
-          plugin_languages: yes
-          plugin_languages_sections: most-used, recently-used
-          plugin_languages_indepth: no
-          plugin_languages_details: percentage
-          plugin_languages_limit: 8
-          plugin_languages_threshold: 1%
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
+          persist-credentials: true
+      - name: Generar la gráfica
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: python3 -I .github/scripts/lenguajes.py > lenguajes.svg.nuevo && mv lenguajes.svg.nuevo lenguajes.svg
+      - name: Guardar si ha cambiado
+        run: |
+          if git diff --quiet -- lenguajes.svg; then echo "Sin cambios"; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add lenguajes.svg
+          git commit -m "Gráfica de lenguajes al día"
+          git push

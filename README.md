@@ -51,4 +51,6 @@ Ahora mismo me interesa sobre todo:
 
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=ddmr2811&theme=github_dark" alt="Actividad en GitHub" />
+  <br />
+  <img src="lenguajes.svg" alt="Lenguajes más usados, contando repos públicos y privados" />
 </p>
