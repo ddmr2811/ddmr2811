@@ -35,9 +35,7 @@ Ahora mismo me interesa sobre todo:
 | --- | --- | --- |
 | [Neutralpha](https://neutralpha.app) | Radar de arbitraje de funding entre exchanges de perpetuos, con bitácora de operaciones, bot de Telegram y app Android. | Trading, datos en directo, Python, React Native |
 | [T3 Code (fork)](https://github.com/ddmr2811/t3code) | Mi versión de T3 Code: panel de decisiones pendientes, estados de cada hilo y varias máquinas en una ventana. | Agentes, TypeScript, Effect |
-| AgentOS | Capa de orquestación de agentes de IA: un orquestador por proyecto, memoria compartida, avisos y tope de gasto. | Agentes, automatización, Linux |
-| Facturas | Procesador automático de facturas para administración de fincas. | OCR, IA local, automatización |
-| Plataforma de siniestros | Web y panel de gestión de siniestros para un despacho de abogados. | Next.js, Supabase, seguridad |
+| App de administración de fincas | Aplicación integrada con una web multiusos para un despacho de administración de fincas: siniestros, correo, certificados y avisos en un solo sitio. | Next.js, Supabase, automatización |
 | [danimartin.dev](https://danimartin.dev) | Mi web: casos reales, precios cerrados y calculadora. | Web estática, rendimiento, diseño |
 
 ## Con qué trabajo
