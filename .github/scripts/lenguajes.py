@@ -12,7 +12,7 @@ from xml.sax.saxutils import escape
 
 API = "https://api.github.com"
 COLORES = {
-    "TypeScript": "#3178c6", "JavaScript": "#f1e05a", "Python": "#3572A5", "HTML": "#e34c26",
+    "TypeScript": "#3178c6", "JavaScript": "#f1e05a", "Python": "#2ec4b6", "HTML": "#e34c26",
     "CSS": "#663399", "Shell": "#89e051", "PowerShell": "#012456", "SQL": "#e38c00",
     "PLpgSQL": "#336790", "Vue": "#41b883", "Kotlin": "#A97BFF", "Swift": "#F05138",
     "Go": "#00ADD8", "Rust": "#dea584", "Dockerfile": "#384d54", "Astro": "#ff5a03",
